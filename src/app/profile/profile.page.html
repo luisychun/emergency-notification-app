@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+
+    <ion-card-header>
+      <ion-card-title>{{ (userData | async)?.username }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      {{ (userData | async)?.fullname }}
+      {{ (userData | async)?.medicalremarks }}
+    </ion-card-content>
+    
+  </ion-card>
+
+  <ion-list>
+    <ion-item>
+        <ion-label position="floating">Full Name</ion-label>
+        <ion-input type="text" [(ngModel)]="fullname"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Medical Remarks</ion-label>
+        <ion-input type="text" [(ngModel)]="mremarks"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="full" fill="solid" color="dark" (click)="updateProfile()">Save</ion-button>
+  <ion-button expand="full" fill="outline" color="danger" (click)="signOut()">Sign Out</ion-button>
+</ion-content>
